@@ -9,12 +9,16 @@ def find_prime_factors(n):
     print('The amount of primes being checked is: ' + str(count))
     current_n_factor = n
     prime_factors = []
+    i = 0
     while i < count and current_n_factor != 1:
         if current_n_factor % sieve[i] == 0:
             current_n_factor / sieve[i]
-            prime_factors.append(sieve.pop([i]))
+            prime_factors.append(sieve.pop(i))
+            count = len(sieve)
             i = 0
         i += 1
+        
+    return prime_factors
 
 def generate_sieve(n):
     '''
